@@ -15,6 +15,7 @@ my @all = qw(
       move
       rm
       rmtree
+      uniq
       );
 
 our @EXPORT_OK = @all;
@@ -784,20 +785,36 @@ Not implemented.
 
 =head2 uniq
 
-Not implemented.
+The uniq unix command eliminates duplicate values following each other 
+but does not enforce uniqueness through the whole input.
+For examle for the following list of input values:  a a a b a a a    
+ths UNIX uniq would return                          a b a
 
-The below example ireally returns the uniq values and not as the unix command that 
-returns uniq sections. so     a  a a b a a a    would return     a b a in UNIX but not here.
+For completeness we also provide uniqunix that behaves just like the UNIX command.
 
-  sub uniq {
-    my @uniq;
-    my %seen;
-    for (@_) {
-      push @uniq, $_ if not $seen{$_}++;
-    }
-    return @uniq;
-  }
 =cut
+sub uniq {
+  my (@uniq, %seen);
+  for (@_) {
+    push @uniq, $_ if not $seen{$_}++;
+  }
+  return @uniq;
+}
+
+=head2 uniqunix
+
+Similar to the UNIX uniq command.
+
+=cut
+sub uniqunix {
+  my (@uniq, $last);
+  for (@_) {
+    next if defined $last and $last eq $_;
+    $last = $_;
+    push @uniq, $last;
+  }
+  return @uniq;
+}
 
 
 =head2 unix2dos
