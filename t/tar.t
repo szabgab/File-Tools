@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 use strict;
 
-use Test::More skip_all => 'Not yet implemented';
+use Test::More skip_all => 'Not implemented yet.';
 
-use PPT;
+use File::Tools;
 
 
 # tar should probably provide the basic facilities directly and if the user needs deeper

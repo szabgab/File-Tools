@@ -1,14 +1,14 @@
 #!/usr/bin/perl -w
 use strict;
 
-use Test::More skip_all => 'Not implemented, just trying how it might look to use iterators';
+use Test::More skip_all => 'Not implemented yet.';
 
-use PPT;
+use File::Tools;
 
 
 
 {
-  my $shell = PPT->new;
+  my $shell = File::Tools->new;
   $shell->copy("old", "new");
 }
 

@@ -1,19 +1,19 @@
 #!/usr/bin/perl -w
 use strict;
 
-use Test::More skip_all => 'These are just ideas on how to use the module in OOP, nothing implemented yet';
+use Test::More skip_all => 'Not implemented yet.';
 
-use PPT;
+use File::Tools;
 
 
 {
-  my $shell = PPT->new;
+  my $shell = File::Tools->new;
   $shell->copy("old", "new");
 }
 
 
 {
-  my $shell = PPT->new;
+  my $shell = File::Tools->new;
   $shell->things([qw(.)]);  # things are directories, files
   $shell->recoursive(1);
   $shell->chown("username", "groupname");
@@ -21,7 +21,7 @@ use PPT;
 
 
 {
-  my $shell = PPT->new(file => "filename");
+  my $shell = File::Tools->new(file => "filename");
   grep /regex/, $shell->cat;
 }
 

@@ -1,10 +1,11 @@
-package PPT;
+package File::Tools;
 use strict;
 use warnings;
 
 use base 'Exporter';
 my @all = qw(
       basename
+      chmod
       copy
       cwd
       date
@@ -30,11 +31,11 @@ sub _not_implemented {
 }
 =head1 NAME
 
-PPT - UNIX tools implemented as Perl Modules
+File::Tools - UNIX tools implemented as Perl Modules
 
 =head1 SYNOPSIS
 
-use PPT qw(:all);
+use File::Tools qw(:all);
 
 my $str = cut {bytes => "3-7"}, "123456789";
 
@@ -59,7 +60,7 @@ I'd rather just use one module that will bring all the necessary functions.
 =item *
 
 On the other hand when I am in OOP mood I want all these functions to be methods of
-a shell-programming-object.
+a shell-programming-object. (Though probably L<Pipe> will answer this need better)
 
 =item *
 
@@ -75,11 +76,11 @@ The goal of this module is to make it even easier to write scripts in Perl that
 were traditionally easier to write in Shell.
 
 Partially we will provide functions similar to existing UNIX commands 
-and partially we will provide explanation on how rewrite various Shell 
+and partially we will provide explanation on how to rewrite various Shell 
 constructs in Perl.
 
-If you are interested in UNIX Reconstruction Project, that was originally called ppt 
-but its goals are different. http://search.cpan.org/dist/ppt/
+There is also a UNIX Reconstruction Project, http://search.cpan.org/dist/ppt/
+I hope we can borrow many code snippets from that project.
 
 =head1 DESCRIPTTION
 
@@ -145,7 +146,8 @@ Use the built in chdir command.
 
 For now use the built in chmod command.
 
-It does not accept any parameters and instead of the a+w strings one has to give the exact octet:
+The built in chmod command does not accept any parameters and instead of the a+w strings 
+one has to give the exact octet:
 
  chmod 0755, @files;
 
@@ -153,9 +155,14 @@ For recursive application use the L<find> function.
 
  find( sub {chmod $mode, $_}, @dirs);
 
-Later we will let user use the a+w string used with the unix command.
+We are exporting the chmod of L<File::chomd>
 
 =cut
+sub chmod {
+  require File::chmod;
+  File::chmod::chmod(@_);
+} 
+
 
 
 
@@ -840,7 +847,7 @@ string operators
 
 =head1 Development
 
-The Subversion repository is here: http://svn1.hostlocal.com/szabgab/trunk/PPT/
+The Subversion repository is here: http://svn1.hostlocal.com/szabgab/trunk/File-Tools/
 
 =head1 AUTHOR
 
