@@ -156,7 +156,7 @@ For recursive application use the L<find> function.
 
  find( sub {chmod $mode, $_}, @dirs);
 
-We are exporting the chmod of L<File::chomd>
+We are exporting the chmod of L<File::chmod>
 
 =cut
 sub chmod {
@@ -310,6 +310,8 @@ sub date {
 
 Not implemented.
 
+See L<Filesys::DiskSpace>
+
 =cut
 sub df {
   _not_implemented();
@@ -359,6 +361,8 @@ Not implemented.
 
 Not implemented.
 
+L<Filesys::DiskUsage>
+
 =cut
 
 
@@ -392,13 +396,25 @@ Not implemented.
 
 In Perl there is no need to use a special function to evaluate an expression.
 
-=head3 match
+=over 4
 
-=head3 substr - built in substr
+=item *
 
-=head3 index - built in index
+match
 
-=head3 length - built in length
+=item *
+
+substr - built in substr
+
+=item *
+
+index - built in index
+
+=item *
+
+length - built in length
+
+=back
 
 =cut
 
@@ -431,6 +447,8 @@ See L<File::Find> for details.
 
 See also find2perl
 
+TODO: Probably will be replaced by L<File::Find::Rule>
+
 =cut
 sub find {
   require File::Find;
@@ -438,6 +456,11 @@ sub find {
 }
 
 
+=head2 ftp
+
+See L<Net::FTP>
+
+=cut
 
 =head2 move
 
@@ -482,6 +505,8 @@ on a list of values (possibly file lines) already in memory in an array or
 piped in from an external file. For this one can use the grep build in function.
 
  @selected = grep /REGEX/, @original;
+
+TODO: See also L<File::Grep>
 
 =cut
 
@@ -558,6 +583,8 @@ display mode of ls.
 
 Sending e-mails.
 
+See L<Mail::Sendmail> and L<Net::SMTP>
+
 =cut
 sub mail {
   require Mail::Sendmail;
@@ -606,6 +633,11 @@ Not implemented.
 
 =cut
 
+=head2 ping
+
+See L<Net::Ping>
+
+=cut
 
 =head2 popd
 
@@ -648,10 +680,9 @@ Not implemented.
 
 =head2 pwd
 
-See <cwd> instead.
+See L<cwd> instead.
 
 =cut
-
 
 
 =head2 read
@@ -680,6 +711,8 @@ For removing files, see the built in L<unlink> function.
 For removing directories see the built in L<rmdir> function.
 
 For removing trees (rm -r) see L<rmtree>
+
+See also L<File::Remove>
 
 =cut
 sub rm {
@@ -714,6 +747,15 @@ sub rmtree {
   File::Path::rmtree(@_);
 }
 
+
+=head2 scp
+
+See also L<Net::SCP>
+
+=cut
+
+
+
 =head2 sed
 
 Not implemented.
@@ -723,6 +765,18 @@ sub sed {
   _not_implemented();
 }
 
+=head2 snmp
+
+L<Net::SNMP>
+
+=cut
+
+
+=head2 ssh
+
+L<Net::SSH>
+
+=cut
 
 
 =head2 shift
@@ -764,6 +818,19 @@ See L<Archive::Tar>
 
 =cut
 
+=head2 telnet
+
+L<Net::Telnet>
+
+=cut
+
+
+=head2 time
+
+See also L<Benchmark>
+
+=cut
+
 
 =head2 touch
 
@@ -791,6 +858,8 @@ For examle for the following list of input values:  a a a b a a a
 ths UNIX uniq would return                          a b a
 
 For completeness we also provide uniqunix that behaves just like the UNIX command.
+
+See also L<Array::Unique>
 
 =cut
 sub uniq {
@@ -882,6 +951,12 @@ See http://www.perl.com/perl/misc/Artistic.html
 
 Tim Maher has a book called Miniperl http://books.perl.org/book/240 that might be very useful.
 I have not seen it yet, but according to what I know about it it should be a good one.
+
+L<Pipe>
+
+Related Discussions:
+
+http://www.perlmonks.org/?node_id=541826
 
 =cut
 
