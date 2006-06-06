@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 
-use Test::More tests => 6;
+use Test::More tests => 10;
 use File::Tools;
 
 {
@@ -28,15 +28,26 @@ use File::Tools;
   is $warn, "Could not open 't/data/nosuch'\n", "warning received correctly";
 }
 
+{
+  my $cwd1 = File::Tools::cwd;
+  my $pushd = File::Tools::pushd("t");
+  my $cwd2 = File::Tools::cwd;
+  is $cwd2, "$cwd1/t", "pushd changes to the new directory";
+  is $pushd, "$cwd1/t", "pushd returns the new directory";
+
+  my $popd = File::Tools::popd;
+  my $cwd3 = File::Tools::cwd;
+  is $popd, $cwd1, "popd returns the original directory";
+  is $cwd3, $cwd1, "popd changes to the original directory";
+}
+
+
 
 # chmod
 # copy
-# cwd
 # date
 # fileparse
 # find
 # move
 # mail
-# popd
-# pushd
 # rmtree

@@ -5,7 +5,7 @@ use Test::More;
 use File::Tools;
 
 my @all = @File::Tools::EXPORT_OK;
-plan tests => 12;
+plan tests => scalar @all;
 foreach my $name (@all) {
   #eval "File::Tools::$name()";
   #ok(!$@, "calling File::Tools::$name") or diag $@;

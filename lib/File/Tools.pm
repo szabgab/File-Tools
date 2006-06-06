@@ -13,6 +13,8 @@ my @all = qw(
       fileparse
       find
       move
+      popd
+      pushd
       rm
       rmtree
       uniq
@@ -32,7 +34,7 @@ sub _not_implemented {
 }
 =head1 NAME
 
-File::Tools - UNIX tools implemented as Perl Modules
+File::Tools - UNIX tools implemented as Perl Modules and made available to other platforms as well
 
 =head1 SYNOPSIS
 
@@ -652,9 +654,12 @@ Change directory to last place where pushd was called.
 
 =cut
 sub popd {
-  my ($dir) = @_;
-  my $d = pop @DIRS;
-  chdir $d;
+  my $dir = pop @DIRS;
+  if (chdir $dir) {
+    return cwd();
+  } else {
+    return;
+  }
 }
 
 =head2 pushd
@@ -665,7 +670,11 @@ Change directory and save the current directory in a stack. See also L<popd>.
 sub pushd {
   my ($dir) = @_;
   push @DIRS, cwd;
-  chdir $dir;
+  if (chdir $dir) {
+    return cwd();
+  } else {
+    return;
+  }
 }
 
 =head2 printf

@@ -14,3 +14,6 @@ t/iterators.t
 t/oop.t
 t/tar.t
 t/uniq.t
+
+t/data/file1
+t/data/file2
