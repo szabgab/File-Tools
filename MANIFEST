@@ -8,6 +8,7 @@ META.yml
 lib/File/Tools.pm
 
 t/01-load.t
+t/02-small.t
 t/cut.t
 t/iterators.t
 t/oop.t

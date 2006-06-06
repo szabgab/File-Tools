@@ -1,4 +1,10 @@
 
-0.01 2006.04.14
+v0.02
 
-Initial release
+ - Adding catfile, slurp
+ - Adding some tests (increasing total coverage from 41.9 to )
+
+
+v0.01 2006.04.14
+
+ - Initial release

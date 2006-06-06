@@ -23,7 +23,7 @@ our %EXPORT_TAGS = (
     all => \@all,
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my @DIRS; # used to implement pushd/popd
 
@@ -80,9 +80,6 @@ Partially we will provide functions similar to existing UNIX commands
 and partially we will provide explanation on how to rewrite various Shell 
 constructs in Perl.
 
-There is also a UNIX Reconstruction Project, http://search.cpan.org/dist/ppt/
-I hope we can borrow many code snippets from that project.
-
 =head1 DESCRIPTTION
 
 =head2 awk
@@ -111,13 +108,7 @@ sub basename {
 
 Not implemented.
 
-Slurp mode to read in a file:
-
- my $content;
- if (open my $fh, "<", "filename") {
-   local $/ = undef;
-   $content = <$fh>;
- }
+See L<slurp>
 
 To process all the files on the command line and print them to the screen.
 
@@ -132,6 +123,18 @@ with the previous code redirecting it to a file using > command line redirector.
 sub cat {
   _not_implemented();
 }
+
+
+=head2 catfile
+
+Concatenating parts of a path in a platform independent way. See also L<File::Spec>
+
+=cut
+sub catfile {
+  require File::Spec;
+  File::Spec->catfile(@_);
+}
+
 
 
 =head2 cd
@@ -158,6 +161,9 @@ For recursive application use the L<find> function.
 
 We are exporting the chmod of L<File::chmod>
 
+On Windows there is no chmod command but ther are some modes that can be changed.
+We should include this functionality too. For now see the Win32::* namespace for this task.
+
 =cut
 sub chmod {
   require File::chmod;
@@ -180,8 +186,9 @@ For recursive application use the L<find> function.
 
  find( sub {chown $uid, $gid, $_}, @dirs);
 
-=cut
+Windows: See chmod above.
 
+=cut
 
 
 
@@ -765,6 +772,24 @@ sub sed {
   _not_implemented();
 }
 
+
+=head2 slurp
+
+=cut
+sub slurp {
+  my $content = "";
+  foreach my $filename (@_) {
+    if (open my $fh, "<", $filename) {
+      local $/ = undef;
+      $content .= <$fh>;
+    } else {
+      warn "Could not open '$filename'\n";
+    }
+  }
+  return $content;
+}
+
+
 =head2 snmp
 
 L<Net::SNMP>
@@ -951,6 +976,11 @@ See http://www.perl.com/perl/misc/Artistic.html
 
 Tim Maher has a book called Miniperl http://books.perl.org/book/240 that might be very useful.
 I have not seen it yet, but according to what I know about it it should be a good one.
+
+L<http://perllinux.sourceforge.net/>
+
+The UNIX Reconstruction Project, L<http://search.cpan.org/dist/ppt/>
+
 
 L<Pipe>
 
