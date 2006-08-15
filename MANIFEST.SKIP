@@ -23,3 +23,6 @@
 \.bak$
 \#$
 \b\.#
+
+# Don't include the critic test as per the recommendation in the module
+t/99-critic.t

@@ -2,13 +2,15 @@ Build.PL
 Makefile.PL
 README
 Changes
-MANIFEST			This list of files
+MANIFEST               This list of files
 META.yml
 
 lib/File/Tools.pm
 
 t/01-load.t
 t/02-small.t
+t/90-pod.t
+t/91-pod-coverage.t
 t/cut.t
 t/iterators.t
 t/oop.t

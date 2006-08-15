@@ -1,4 +1,10 @@
 
+v0.03 2006.08.16
+
+ - add Test::Pod and Test::Pod::Coverage to improve CPANTS rating
+ - use Test::Perl::Critic but don't distribute with it
+ - add compare function using File::Compare
+
 v0.02 2006.04.24
 
  - Adding catfile, slurp

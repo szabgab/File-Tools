@@ -18,6 +18,8 @@ my $builder = Module::Build->new(
         'File::chmod'               => '0',
 
 #        'Mail::Sendmail'            => '',
+    },
+    build_requires      => {
         'Test::More'                => '0.47',
     },
 );

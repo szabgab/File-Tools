@@ -25,7 +25,7 @@ our %EXPORT_TAGS = (
     all => \@all,
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my @DIRS; # used to implement pushd/popd
 
@@ -163,7 +163,7 @@ For recursive application use the L<find> function.
 
 We are exporting the chmod of L<File::chmod>
 
-On Windows there is no chmod command but ther are some modes that can be changed.
+On Windows there is no chmod command but there are some modes that can be changed.
 We should include this functionality too. For now see the Win32::* namespace for this task.
 
 =cut
@@ -193,15 +193,20 @@ Windows: See chmod above.
 =cut
 
 
-
 =head2 cmp
 
-Not implemented.
+See C<compare>
 
-See L<File::Compare>
+=head2 compare
+
+Compare two files
+See L<File::Compare> for details.
 
 =cut
-
+sub compare {
+    require File::Compare;
+    File::Compare::compare(@_);
+}
 
 
 =head2 compress
