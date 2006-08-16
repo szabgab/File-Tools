@@ -1,4 +1,9 @@
 
+ - add 'mkpath' from File::Path
+ - remove the 'mail' function that used non-standard module
+ - remove the 'chmod' function that used non-standard module
+ - add compare to the list of exported methods (missed in 0.03)
+
 v0.03 2006.08.16
 
  - add Test::Pod and Test::Pod::Coverage to improve CPANTS rating

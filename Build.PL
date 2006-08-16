@@ -15,9 +15,6 @@ my $builder = Module::Build->new(
         'POSIX'                     => '0',
         'File::Find'                => '0',
         'File::Path'                => '0',
-        'File::chmod'               => '0',
-
-#        'Mail::Sendmail'            => '',
     },
     build_requires      => {
         'Test::More'                => '0.47',

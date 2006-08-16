@@ -57,12 +57,12 @@ use File::Tools;
     print {$fh} "\n";
     close $fh;
     is File::Tools::compare($0, "$0.tmp"), 1, "filed copied is the same";
+    unlink "$0.tmp";
    
     BEGIN { $tests += 2; }
 }
 
 
-# chmod
 # copy
 # date
 # fileparse

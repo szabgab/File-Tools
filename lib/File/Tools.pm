@@ -5,13 +5,14 @@ use warnings;
 use base 'Exporter';
 my @all = qw(
       basename
-      chmod
+      compare
       copy
       cwd
       date
       dirname
       fileparse
       find
+      mkpath
       move
       popd
       pushd
@@ -82,7 +83,7 @@ Partially we will provide functions similar to existing UNIX commands
 and partially we will provide explanation on how to rewrite various Shell 
 constructs in Perl.
 
-=head1 DESCRIPTTION
+=head1 DESCRIPTION
 
 =head2 awk
 
@@ -141,7 +142,7 @@ sub catfile {
 
 =head2 cd
 
-Use the built in chdir command.
+Use the built in chdir function.
 
 =cut
 
@@ -150,34 +151,15 @@ Use the built in chdir command.
 
 =head2 chmod
 
-For now use the built in chmod command.
-
-The built in chmod command does not accept any parameters and instead of the a+w strings 
-one has to give the exact octet:
-
- chmod 0755, @files;
-
-For recursive application use the L<find> function.
-
- find( sub {chmod $mode, $_}, @dirs);
-
-We are exporting the chmod of L<File::chmod>
-
-On Windows there is no chmod command but there are some modes that can be changed.
-We should include this functionality too. For now see the Win32::* namespace for this task.
+Use the built in chmod function.
 
 =cut
-sub chmod {
-  require File::chmod;
-  File::chmod::chmod(@_);
-} 
-
 
 
 
 =head2 chown
 
-For now use the built in chown command.
+For now use the built in chown function.
 
 It accepts only UID and GID values, but it is easy to retreive them: 
 
@@ -600,10 +582,6 @@ Sending e-mails.
 See L<Mail::Sendmail> and L<Net::SMTP>
 
 =cut
-sub mail {
-  require Mail::Sendmail;
-  Mail::Sendmail::sendmail(@_);
-}
 
 
 =head2 mkdir
@@ -612,9 +590,21 @@ Not implemented.
 
 See the built in mkdir function.
 
-See also L<mkpath>
+See also L</mkpath>
 
 =cut
+
+
+=head2 mkpath
+
+Create a directory with all its parent directories.
+See L<File::Path> for details.
+
+=cut
+sub mkpath {
+  require File::Path;
+  File::Path::mkpath(@_);
+}
 
 
 
@@ -973,6 +963,16 @@ string operators
 =head1 Development
 
 The Subversion repository is here: http://svn1.hostlocal.com/szabgab/trunk/File-Tools/
+
+=head1 TODO
+
+File::Basename::fileparse_set_fstype
+File::Compare::compare_text
+File::Compare::cmp
+File::Copy::syscopy
+File::Find
+File::Spec
+File::Temp
 
 =head1 AUTHOR
 
