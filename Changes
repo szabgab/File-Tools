@@ -1,4 +1,6 @@
+v0.04 2007.05.18
 
+ - export catfile
  - add 'mkpath' from File::Path
  - remove the 'mail' function that used non-standard module
  - remove the 'chmod' function that used non-standard module

@@ -5,7 +5,7 @@ use Module::Build;
 my $builder = Module::Build->new(
     module_name         => 'File::Tools',
     license             => 'perl',
-    dist_author         => 'Gabor Szabo <gabor@pti.co.il>',
+dist_abstract => "UNIX tools implemented as Perl Modules and made available to other platforms as well",
     create_makefile_pl  => 'traditional',
     create_readme       => 1,
     requires            => {

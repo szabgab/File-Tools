@@ -5,6 +5,7 @@ use warnings;
 use base 'Exporter';
 my @all = qw(
       basename
+      catfile
       compare
       copy
       cwd
@@ -26,7 +27,7 @@ our %EXPORT_TAGS = (
     all => \@all,
 );
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 my @DIRS; # used to implement pushd/popd
 
