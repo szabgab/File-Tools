@@ -1,8 +1,11 @@
 #!/usr/bin/perl -w
 use strict;
 
-use Test::More "no_plan";
+use Test::More;
+use Test::NoWarnings;
 use File::Tools ':all';
+
+plan tests => 1 + 4;
 
 is File::Tools::cut ({bytes => 1}, "123456789abcdf"), "1",    "bytes => 1";
 is File::Tools::cut ({bytes => 4}, "123456789abcdf"), "4",    "bytes => 4";

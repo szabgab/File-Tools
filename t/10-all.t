@@ -2,10 +2,11 @@
 use strict;
 
 use Test::More;
+use Test::NoWarnings;
 use File::Tools;
 
 my @all = @File::Tools::EXPORT_OK;
-plan tests => scalar @all;
+plan tests => 1 +  scalar @all;
 foreach my $name (@all) {
   #eval "File::Tools::$name()";
   #ok(!$@, "calling File::Tools::$name") or diag $@;

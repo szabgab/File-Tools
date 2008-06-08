@@ -27,7 +27,7 @@ our %EXPORT_TAGS = (
     all => \@all,
 );
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 my @DIRS; # used to implement pushd/popd
 
@@ -982,6 +982,8 @@ Gabor Szabo <gabor@pti.co.il>
 =head1 Copyright
 
 Copyright 2006 by Gabor Szabo <gabor@pti.co.il>.
+
+=head1 LICENSE
 
 This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 

@@ -1,7 +1,8 @@
 #!/usr/bin/perl -w
 use strict;
 
-use Test::More tests => 6;
+use Test::More tests => 1+6;
+use Test::NoWarnings;
 use File::Tools;
 
 is_deeply( [File::Tools::uniq(qw(a b c))], [qw(a b c)], "uniq originally" );

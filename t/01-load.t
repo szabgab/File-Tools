@@ -4,7 +4,10 @@ use warnings;
 
 my @funcs;
 BEGIN {@funcs = qw(awk cat df diff rm sed tail) }
-use Test::More tests => 1+@funcs;
+
+use Test::More tests => 1+1+@funcs;
+use Test::NoWarnings;
+
 BEGIN { use_ok "File::Tools"; }
 
 

@@ -2,6 +2,7 @@
 use strict;
 
 use Test::More skip_all => 'Not implemented yet.';
+use Test::NoWarnings;
 
 use File::Tools;
 
