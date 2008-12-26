@@ -20,13 +20,13 @@ use File::Tools;
 {
     my $file1 = 't/data/file1';
     my $data = File::Tools::slurp $file1;
-    open my $fh1, '<', $file1 or BAIL_OUT("Could not open '$file1' $!");
+    open (my $fh1, '<', $file1) or BAIL_OUT("Could not open '$file1' $!");
     my $expected = join "", <$fh1>;
     is $data, $expected, 'slurp of one file works';
 
     my $file2 = 't/data/file2';
     my $data2 = File::Tools::slurp $file1, $file2;
-    open my $fh2, '<', $file2 or BAIL_OUT("Could not open '$file2' $@");
+    open (my $fh2, '<', $file2) or BAIL_OUT("Could not open '$file2' $@");
     my $expected2 = $expected . join "", <$fh2>;
     is $data2, $expected2, 'slurp of two files works';
 
@@ -57,11 +57,11 @@ use File::Tools;
 
 my $dir = tempdir( CLEANUP => 1 );
 {
-    my $new = File::Tools::catfile($dir, 'a');
+    my $new = File::Tools::catfile($dir, 'a.txt');
     File::Tools::copy($0, $new) or BAIL_OUT("Could not copy $0 to $new");
     is File::Tools::compare($0, $new), 0, 'file copied is the same';
 
-    open my $fh, ">>", $new or BAIL_OUT("Cannot open '$new': $!");
+    open (my $fh, ">>", $new) or BAIL_OUT("Cannot open '$new': $!");
     print {$fh} "\n";
     close $fh;
     is File::Tools::compare($0, $new), 1, 'file copied is the same, disregarding newline';
