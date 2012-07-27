@@ -16,7 +16,6 @@ WriteMakefile (
      'File::Find'                => '0',
      'File::Path'                => '0',
      'File::Temp'                => '0',
-     'perl'                      => '5.008',
   },
   BUILD_REQUIRES => {
                      'Test::More'    => '0.80',
