@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 my @funcs;
-BEGIN {@funcs = qw(awk cat df diff rm sed tail) }
+BEGIN {@funcs = qw(cat df diff rm tail) }
 
 use Test::More tests => 1+1+@funcs;
 use Test::NoWarnings;

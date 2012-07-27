@@ -57,9 +57,9 @@ Why this module?
 
 =item *
 
-When I am writing filesystem related applications I always need to load several 
-standard modules such as File::Basename, Cwd, File::Copy, File::Path and maybe 
-others in order to have all the relevant functions. 
+When I am writing filesystem related applications I always need to load several
+standard modules such as File::Basename, Cwd, File::Copy, File::Path and maybe
+others in order to have all the relevant functions.
 I'd rather just use one module that will bring all the necessary functions.
 
 =item *
@@ -80,20 +80,20 @@ the previous issue.
 The goal of this module is to make it even easier to write scripts in Perl that
 were traditionally easier to write in Shell.
 
-Partially we will provide functions similar to existing UNIX commands 
-and partially we will provide explanation on how to rewrite various Shell 
+Partially we will provide functions similar to existing UNIX commands
+and partially we will provide explanation on how to rewrite various Shell
 constructs in Perl.
 
 =head1 DESCRIPTION
 
-=head2 awk
-
-Not implemented.
-
-=cut
-sub awk {
-  _not_implemented();
-}
+#=head2 awk
+#
+#Not implemented.
+#
+#=cut
+#sub awk {
+#  _not_implemented();
+#}
 
 
 =head2 basename
@@ -162,7 +162,7 @@ Use the built in chmod function.
 
 For now use the built in chown function.
 
-It accepts only UID and GID values, but it is easy to retreive them: 
+It accepts only UID and GID values, but it is easy to retreive them:
 
  chown $uid, $gid, @files;
  chown getpwnam($user), getgrname($group), @files;
@@ -216,7 +216,7 @@ too using either one of these modules: L<File::NCopy> or L<File::Copy::Recursive
 sub copy {
   require File::Copy;
   File::Copy::copy(@_);
-} 
+}
 
 
 =head2 cut
@@ -463,7 +463,7 @@ See L<Net::FTP>
 
 Move a file from one directory to any other directory with any name.
 
-One can use the built in rename function but it only works on the same filesystem. 
+One can use the built in rename function but it only works on the same filesystem.
 
 See L<File::Copy> for details.
 
@@ -501,7 +501,7 @@ but within real code we are going to be more interested doing such operation
 on a list of values (possibly file lines) already in memory in an array or
 piped in from an external file. For this one can use the grep build in function.
 
- @selected = grep /REGEX/, @original;
+ @selected = grep { $_ =~ /REGEX/ } @original;
 
 TODO: See also L<File::Grep>
 
@@ -527,11 +527,11 @@ Not implemented.
 
 =head2 id
 
-Normally the id command shows the current username, userid, group and gid. 
+Normally the id command shows the current username, userid, group and gid.
 In Perl one can access the current ireal UID as $<  and the effective UID as $>.
 The real GID is $(  and the effective GID is $) of the current user.
 
-To get the username and the group name use the getpwuid($uid) and getpwgrid($gid) 
+To get the username and the group name use the getpwuid($uid) and getpwgrid($gid)
 functions respectively in scalar context.
 
 
@@ -569,7 +569,7 @@ See the build in L<link> and L<symlink> functions.
 Not implemented.
 
 See glob and the opendir/readdir pair for listing filenames
-use stat and lstat to retreive information needed for the -l 
+use stat and lstat to retreive information needed for the -l
 display mode of ls.
 
 =cut
@@ -768,14 +768,14 @@ See also L<Net::SCP>
 
 
 
-=head2 sed
-
-Not implemented.
-
-=cut
-sub sed {
-  _not_implemented();
-}
+#=head2 sed
+#
+#Not implemented.
+#
+#=cut
+#sub sed {
+#  _not_implemented();
+#}
 
 
 =head2 slurp
