@@ -2,13 +2,14 @@
 use strict;
 use warnings;
 
-my @funcs;
-BEGIN {@funcs = qw(cat df diff rm tail) }
+my @funcs = qw(cat df diff rm tail);
 
-use Test::More tests => 1+1+@funcs;
+use Test::More;
 use Test::NoWarnings;
 
-BEGIN { use_ok "File::Tools"; }
+plan tests => 1+@funcs;
+
+use File::Tools;
 
 
 foreach my $func (@funcs) {
