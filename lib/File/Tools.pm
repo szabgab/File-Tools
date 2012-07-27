@@ -27,7 +27,7 @@ our %EXPORT_TAGS = (
     all => \@all,
 );
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 my @DIRS; # used to implement pushd/popd
 
@@ -960,11 +960,6 @@ $? error code of last command
 if test ...
 string operators
 
-
-=head1 Development
-
-The Subversion repository is here: http://svn1.hostlocal.com/szabgab/trunk/File-Tools/
-
 =head1 TODO
 
 File::Basename::fileparse_set_fstype
@@ -977,17 +972,17 @@ File::Temp
 
 =head1 AUTHOR
 
-Gabor Szabo <gabor@pti.co.il>
+Gabor Szabo <gabor@szabgab.com>
 
 =head1 Copyright
 
-Copyright 2006 by Gabor Szabo <gabor@pti.co.il>.
+Copyright 2006-2012 by Gabor Szabo <gabor@szabgab.com>.
 
 =head1 LICENSE
 
 This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
-See http://www.perl.com/perl/misc/Artistic.html
+See L<http://www.perl.com/perl/misc/Artistic.html>
 
 =head1 SEE ALSO
 
@@ -998,12 +993,14 @@ L<http://perllinux.sourceforge.net/>
 
 The UNIX Reconstruction Project, L<http://search.cpan.org/dist/ppt/>
 
+L<http://perl5maven.com/the-most-important-file-system-tools>
+
 
 L<Pipe>
 
 Related Discussions:
 
-http://www.perlmonks.org/?node_id=541826
+L<http://www.perlmonks.org/?node_id=541826>
 
 =cut
 

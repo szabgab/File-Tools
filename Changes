@@ -1,3 +1,4 @@
+v0.06 2012.07.27
 
  - Move to Github
  - Replace Build.PL by Makefile.PL using ExtUtils::MakeMaker
