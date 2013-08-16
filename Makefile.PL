@@ -25,7 +25,7 @@ WriteMakefile (
   LICENSE => 'perl',
   META_MERGE => {
     resources => {
-      Repository => 'http://github.com/szabgab/File-Tools',
+      repository => 'http://github.com/szabgab/File-Tools',
     }
   },
 );
