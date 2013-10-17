@@ -28,7 +28,7 @@ WriteMakefile (
     resources => {
       repository => {
           type => 'git',
-          url  => 'git://github.com/szabgab/File-Tools.git',
+          url  => 'https://github.com/szabgab/File-Tools.git',
           web  => 'https://github.com/szabgab/File-Tools',
       },
     }
