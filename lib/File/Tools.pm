@@ -86,6 +86,8 @@ constructs in Perl.
 
 =head1 DESCRIPTION
 
+=cut
+
 #=head2 awk
 #
 #Not implemented.
