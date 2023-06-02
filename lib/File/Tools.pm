@@ -27,7 +27,7 @@ our %EXPORT_TAGS = (
     all => \@all,
 );
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 my @DIRS; # used to implement pushd/popd
 
